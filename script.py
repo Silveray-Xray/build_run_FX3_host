@@ -77,7 +77,7 @@ if __name__ == '__main__':
 
     #load on to FX3
     cypress_fw_prog = r"C:\Program Files (x86)\Cypress\EZ-USB FX3 SDK\1.3\util\cyfwprog\cyfwprog.exe"
-    fw_path = r"C:\Users\LanaBeck\Documents\GitHub\fx3_gpif_ex2\Debug\GPIF_Example2.img"
+    fw_path = f"{project_path}/Debug/GPIF_Example2.img"
     load_FX3_image(cypress_fw_prog,fw_path)
 
     #(build and) run host exe
