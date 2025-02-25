@@ -1,30 +1,31 @@
+#! python.exe
 import subprocess
 # import usb.core
 # import usb.backend.libusb1
 import json
 
-def load_usb(print_all,VID,PID):
-    backend = usb.backend.libusb1.get_backend(
-        find_library=lambda x: "C://Users//LanaBeck//Software//libusb-1.0.27//VS2022//MS64//dll//libusb-1.0.dll")
-    if backend is None:
-        print("libusb not found!")
-    else:
-        print("libusb found and loaded!")
+# def load_usb(print_all,VID,PID):
+#     backend = usb.backend.libusb1.get_backend(
+#         find_library=lambda x: "C://Users//LanaBeck//Software//libusb-1.0.27//VS2022//MS64//dll//libusb-1.0.dll")
+#     if backend is None:
+#         print("libusb not found!")
+#     else:
+#         print("libusb found and loaded!")
 
-    usb_devices = usb.core.find(backend=backend, find_all=True)
+#     usb_devices = usb.core.find(backend=backend, find_all=True)
 
-    if print_all:
-        for i, d in enumerate(usb_devices):
-            print(i,d)
+#     if print_all:
+#         for i, d in enumerate(usb_devices):
+#             print(i,d)
 
-    dev = usb.core.find(idVendor=VID, idProduct=PID)
-    if dev is None:
-        raise ValueError('Device not found')
-    if dev is None:
-        print("Device not found")
-    else:
-        print("Device found:", dev)
-    # dev.reset()
+#     dev = usb.core.find(idVendor=VID, idProduct=PID)
+#     if dev is None:
+#         raise ValueError('Device not found')
+#     if dev is None:
+#         print("Device not found")
+#     else:
+#         print("Device found:", dev)
+#     # dev.reset()
 
 def compile_eclipse_project(eclipse_exe,project_path):
     command = [eclipse_exe, "-nosplash", "-application", "org.eclipse.cdt.managedbuilder.core.headlessbuild", "-build", project_path,"-configuration","debug"]
