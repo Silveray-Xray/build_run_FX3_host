@@ -1,6 +1,7 @@
 import subprocess
-import usb.core
-import usb.backend.libusb1
+# import usb.core
+# import usb.backend.libusb1
+import json
 
 def load_usb(print_all,VID,PID):
     backend = usb.backend.libusb1.get_backend(
@@ -69,23 +70,27 @@ if __name__ == '__main__':
     #     except Exception as e:
     #         print(f"No USB devices found: {e}")
 
+    # Load the paths
+    with open('paths_config.json', 'r') as f:
+        config = json.load(f)
+
 
     #Compile fw
-    eclipse_exe = "C:/Program Files (x86)/Cypress/EZ-USB FX3 SDK/1.3/Eclipse/ezUsbSuite.exe"  # Adjust this path
-    project_path = "C:/Users/LanaBeck/Documents/GitHub/fx3_gpif_ex2"
-    compile_eclipse_project(eclipse_exe, project_path)
+    eclipse_exe = config['paths']['eclipse']['executable']
+    eclipse_project_path = config['paths']['eclipse']['project_path']
+    compile_eclipse_project(eclipse_exe, eclipse_project_path)
 
     #load on to FX3
-    cypress_fw_prog = r"C:\Program Files (x86)\Cypress\EZ-USB FX3 SDK\1.3\util\cyfwprog\cyfwprog.exe"
-    fw_path = f"{project_path}/Debug/GPIF_Example2.img"
+    cypress_fw_prog = config['paths']['cypress']['programmer']
+    fw_path = config['paths']['cypress']['fw_path']
     load_FX3_image(cypress_fw_prog,fw_path)
 
     #(build and) run host exe
-    host_exe_path = r"C:\Users\LanaBeck\source\repos\dxf_host\Debug\Poll4FX3.exe"
-    host_sln_path=r"C:\Users\LanaBeck\Documents\GitHub\dxf_host"
-    VS_dev_env_path=r"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE"
+    VS_dev_env_path = config['paths']['visualStudio']['executable']
+    host_sln_path = config['paths']['visualStudio']['solution']
+    host_exe_path = config['paths']['visualStudio']['host_exe']
 
-    # rebuild_host(VS_dev_env_path, host_sln_path, True)
+    # rebuild_host(VS_dev_env_path, host_sln_path, False)
     load_USB_host(host_exe_path)
 
     print("finished")

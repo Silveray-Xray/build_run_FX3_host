@@ -1,0 +1,17 @@
+{
+  "paths": {
+    "visualStudio": {
+      "executable": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE",
+      "solution": "C:\\Users\\LanaBeck\\source\\repos\\dxf_host\\dxf_host.sln",
+      "host_exe": "C:\\Users\\LanaBeck\\source\\repos\\dxf_host\\Debug\\Poll4FX3.exe"
+    },
+    "eclipse": {
+      "executable": "C:/Program Files (x86)/Cypress/EZ-USB FX3 SDK/1.3/Eclipse/ezUsbSuite.exe",
+      "project_path": "C:\\Users\\LanaBeck\\Documents\\GitHub\\fx3_gpif_ex2"
+    },
+    "cypress": {
+      "fw_path": "C:\\Users\\LanaBeck\\Documents\\GitHub\\fx3_gpif_ex2\\Debug\\GPIF_Example2.img",
+      "programmer": "C:\\Program Files (x86)\\Cypress\\EZ-USB FX3 SDK\\1.3\\util\\cyfwprog\\cyfwprog.exe"
+    }
+  }
+}
