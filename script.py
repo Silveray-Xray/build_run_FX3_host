@@ -3,6 +3,7 @@ import subprocess
 # import usb.core
 # import usb.backend.libusb1
 import json
+import os
 
 # def load_usb(print_all,VID,PID):
 #     backend = usb.backend.libusb1.get_backend(
@@ -92,6 +93,9 @@ if __name__ == '__main__':
     host_exe_path = config['paths']['visualStudio']['host_exe']
 
     # rebuild_host(VS_dev_env_path, host_sln_path, False)
+    # change to the host exe dir so we can find the cfg.txt file
+    runPath = config['paths']['run']['working_dir']
+    os.chdir(runPath)
     load_USB_host(host_exe_path)
 
     print("finished")

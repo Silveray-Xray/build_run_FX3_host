@@ -12,6 +12,9 @@
     "cypress": {
       "fw_path": "C:\\git\\cypress\\Infineon-SuperSpeed_Design_Examples_v1.2.1-Code Example-v01_00-EN\\SuperSpeed Design Examples V1.2.1\\FX3 Firmware Projects\\GPIF_Example2\\Debug\\GPIF_Example2.img",
       "programmer": "C:\\Program Files (x86)\\Cypress\\EZ-USB FX3 SDK\\1.3\\util\\cyfwprog\\cyfwprog.exe"
+    },
+    "run":{
+      "working_dir":"C:\\git\\cypress\\vs_proj\\Poll4FX3\\Poll4FX3\\"
     }
   }
 }
